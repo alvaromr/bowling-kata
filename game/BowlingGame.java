@@ -2,7 +2,7 @@ package game;
 
 public class BowlingGame {
 
-    private int [] rolls = new int[21];
+    private int[] rolls = new int[21];
     private int rollCount = 0;
 
     public void roll(int pins) {
@@ -12,16 +12,16 @@ public class BowlingGame {
     public int score() {
         int score = 0;
         int rollIndex = 0;
-        for(int frame = 0; frame < 10; frame++){
-            if(isStrike(rollIndex)){
+        for (int frame = 0; frame < 10; frame++) {
+            if (isStrike(rollIndex)) {
                 score += 10 + strikeBonus(rollIndex);
-                rollIndex+=1;
-            } else if(isSpare(rollIndex)){
+                rollIndex += 1;
+            } else if (isSpare(rollIndex)) {
                 score += 10 + spareBonus(rollIndex);
-                rollIndex+=2;
+                rollIndex += 2;
             } else {
                 score += normalScore(rollIndex);
-                rollIndex+=2;
+                rollIndex += 2;
             }
         }
         return score;
@@ -44,6 +44,6 @@ public class BowlingGame {
     }
 
     private boolean isSpare(int rollIndex) {
-        return this.rolls[rollIndex] + this.rolls[rollIndex+1] == 10;
+        return this.rolls[rollIndex] + this.rolls[rollIndex + 1] == 10;
     }
 }
